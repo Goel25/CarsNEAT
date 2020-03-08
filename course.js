@@ -9,7 +9,7 @@ class Course {
 
         this.cars = [];
         for (let i = 0; i < popSize; i++) {
-            this.cars.push(new Car(this.start.x, this.start.y, 3));
+            this.cars.push(new Car(this.start.x, this.start.y));
         }
 
         for (let i = 0; i < json.barriers.length; i++) {
@@ -30,7 +30,7 @@ class Course {
                 shouldEvolve = false;
 
                 const inps = this.cars[i].getInputs(this.barriers);
-                const outs = neat.pop[i].predict(inps);
+                const outs = neat.pop[i].predict([...inps, 1]);
 
                 this.cars[i].accelerate(mapToDir(outs[0], 0.5));
                 this.cars[i].turn(mapToDir(outs[1], 0.5));

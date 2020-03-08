@@ -1,5 +1,5 @@
 class Car {
-    constructor(x, y, maxSpeed) {
+    constructor(x, y) {
         this.pos = createVector(x, y);
         this.facing = -Math.PI / 2;
         this.speed = 0;
@@ -20,8 +20,8 @@ class Car {
 
         this.crashed = false;
 
-        this.maxSpeed = maxSpeed;
-        this.maxAngSpeed = 0.1;
+        this.maxSpeed = 5;
+        this.maxAngSpeed = 0.4;
         this.accSpeed = 0.4;
         this.angAccSpeed = 0.2;
     }

@@ -41,7 +41,7 @@ const popSize = 500;
 const inpSize = 5;
 const options = {
     populationSize: popSize,
-    inpSize: inpSize, //The amount of inputs to the networks
+    inpSize: inpSize + 1, //The amount of inputs to the networks
     outSize: 2, //The amount of outputs to the networks
 
     disjointConst: 2, //How important disjoint nodes are for the compatability fn
@@ -53,11 +53,11 @@ const options = {
     compatThreshMod: 0.3, //How much the compatibility threshold changes to get the desired amt of species
     defaultCompatThresh: 1, //The initial amt of similarity individuals must have to be in the same species
 
-    shiftWeightProb: 0.02,
-    changeWeightProb: 0.01,
-    enabledDisableProb: 0.005,
-    splitConnectionProb: 0.003,
-    newConnectionProb: 0.008,
+    shiftWeightProb: 0.2,
+    changeWeightProb: 0.1,
+    enabledDisableProb: 0.05,
+    splitConnectionProb: 0.03,
+    newConnectionProb: 0.08,
 }
 
 function preload() {
@@ -73,7 +73,7 @@ function setup() {
 
 function draw() {
     background(200);
-    neat.showSpeciGraph(500, 10, 300);
+    // neat.showSpeciGraph(500, 10, 300);
     for (let i = 0; i < speed; i++) {
         course.update();
     }
