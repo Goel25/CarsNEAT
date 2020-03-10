@@ -43,16 +43,22 @@ class NEAT {
      */
 
     nextGen() {
-        let newPop = [];
+        let bestFit = this.pop[0].fitness;
+        let best = this.pop[0];
         let totalFit = 0;
         for (let i = 0; i < this.pop.length; i++) {
             // this.pop[i].fitness *= this.pop[i].fitness;
+            if (this.pop[i].fitness > bestFit) {
+                bestFit = this.pop[i].fitness;
+                best = this.pop[i].copy();
+            }
+
             this.pop[i].fitness = Math.sqrt(this.pop[i].fitness);
             totalFit += this.pop[i].fitness;
         }
-        // const totalFit = this.pop.reduce((sum, curr) => sum + curr.fitness);
 
-        for (let i = 0; i < this.popSize; i++) {
+        let newPop = [best];
+        for (let i = 1; i < this.popSize; i++) {
             const parentAIndex = this.getWeightedSpeciIndex(this.pop, totalFit);
             const parentA = this.pop[parentAIndex];
 
@@ -64,7 +70,7 @@ class NEAT {
 
             let child;
             if (parentA.fitness > parentB.fitness) { //Crossover differently depending on the fitnesses
-                child = this.crossover(parentA, parentB); //TODO When crossed between species, the fitness metric is not adjusted
+                child = this.crossover(parentA, parentB);
             } else if (parentA.fitness < parentB.fitness) {
                 child = this.crossover(parentB, parentA);
             } else {

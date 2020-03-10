@@ -47,6 +47,7 @@ class Course {
             console.log("Next gen");
             this.frameCount = 0;
             neat.nextGen();
+            this.timeLimit += 5;
             this.cars = [];
             for (let i = 0; i < popSize; i++) {
                 this.cars.push(new Car(this.start.x, this.start.y, i, 3));

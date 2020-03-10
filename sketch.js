@@ -53,11 +53,11 @@ const options = {
     compatThreshMod: 0.3, //How much the compatibility threshold changes to get the desired amt of species
     defaultCompatThresh: 1, //The initial amt of similarity individuals must have to be in the same species
 
-    shiftWeightProb: 0.2,
-    changeWeightProb: 0.1,
-    enabledDisableProb: 0.05,
-    splitConnectionProb: 0.03,
-    newConnectionProb: 0.08,
+    shiftWeightProb: 0.1,
+    changeWeightProb: 0.05,
+    enabledDisableProb: 0.0025,
+    splitConnectionProb: 0.0015,
+    newConnectionProb: 0.04,
 }
 
 function preload() {

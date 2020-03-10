@@ -21,7 +21,7 @@ class Car {
         this.crashed = false;
 
         this.maxSpeed = 5;
-        this.maxAngSpeed = 0.4;
+        this.maxAngSpeed = 0.3;
         this.accSpeed = 0.4;
         this.angAccSpeed = 0.2;
     }
@@ -119,7 +119,8 @@ class Car {
         push();
         translate(this.pos.x, this.pos.y);
         rotate(this.facing);
-        fill(50);
+        if (!this.crashed) fill(50);
+        else fill(50, 75);
         noStroke();
         rect(-this.halfDim.x, -this.halfDim.y, this.dim.x, this.dim.y);
         pop();
